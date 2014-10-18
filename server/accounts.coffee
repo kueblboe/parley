@@ -4,6 +4,10 @@ capitalize = (string) ->
 secondLevelDomain = (string) ->
   string.match(/[^\.\@]*\.[a-zA-Z]{2,}$/)[0]
 
+createFirstTopicIfNoneExists = (domain) ->
+  unless Lists.findOne({domain: domain})
+    Lists.insert({domain: domain, name: "internal"})
+
 Accounts.emailTemplates.siteName = "Parley"
 Accounts.emailTemplates.from = "Manuel <manuel@qualityswdev.com>"
 Accounts.emailTemplates.resetPassword.text = (user, url) ->
@@ -26,6 +30,7 @@ Accounts.onCreateUser (options, user) ->
       lastname: capitalize(lastname)
       avatar: Gravatar.imageUrl(user.emails[0].address, {d: 'monsterid'})
     user.domain = secondLevelDomain(domain)
+    createFirstTopicIfNoneExists(user.domain)
   user
 
 Accounts.validateLoginAttempt (attempt) ->
