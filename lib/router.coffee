@@ -80,7 +80,11 @@ requireLogin = (pause) ->
       @render "signin"
       pause()
 
-Router.onBeforeAction requireLogin
+Router.onBeforeAction requireLogin,
+    except: [
+      "join"
+      "signin"
+    ]
 
 if Meteor.isClient
   Router.onBeforeAction "loading",
