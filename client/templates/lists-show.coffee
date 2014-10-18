@@ -36,10 +36,9 @@ saveList = (list, template) ->
 
 deleteList = (list) ->
   # ensure the last public list cannot be deleted.
-  return alert("Sorry, you cannot delete the final public topic!") if not list.domain and Lists.find(domain:
-    $exists: false
-  ).count() is 1
-  message = "Are you sure you want to delete the topic " + list.name + "?"
+  if Lists.find(domain: Meteor.user().domain).count() is 1
+    return alert("Mate, you cannot delete the final topic!") 
+  message = "Are you sure you want to delete the topic #{list.name} together with all its posts?"
   if confirm(message)
     # we must remove each item individually from the client
     Todos.find(listId: list._id).forEach (todo) ->
