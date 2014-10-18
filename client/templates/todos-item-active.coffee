@@ -1,3 +1,7 @@
+Template.todosItemActive.helpers
+  disabled: ->
+    if this.userId isnt Meteor.userId() then "disabled"
+
 Template.todosItemActive.events
   "blur textarea": (event) ->
     if event.target.value isnt ""
