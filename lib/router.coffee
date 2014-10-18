@@ -84,6 +84,8 @@ Router.onBeforeAction requireLogin,
     except: [
       "join"
       "signin"
+      "verifyEmail"
+      "recovery"
     ]
 
 if Meteor.isClient
