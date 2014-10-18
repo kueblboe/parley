@@ -78,7 +78,6 @@ requireLogin = (pause) ->
       pause()
     else
       @render "signin"
-      pause()
 
 Router.onBeforeAction requireLogin,
     except: [
