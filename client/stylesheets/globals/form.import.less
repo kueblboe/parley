@@ -1,0 +1,78 @@
+// Standard text input
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+  // Sizing
+  .font-s2;
+  .type-regular;
+  padding: .75rem 0; //total height ~48
+  line-height: 1.5rem !important;
+
+  // Style
+  .placeholder(@color-complementary);
+  border: none;
+  border-radius: 0;
+  box-sizing: border-box;
+  color: @color-full;
+  outline: none;
+
+  &[disabled] { opacity: .5; }
+}
+
+// Remove chrome/saf autofill yellow background
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px @color-empty inset;
+}
+
+// Custom checkbox
+.checkbox {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  margin: 8px;
+}
+
+// Input with an icon
+.input-symbol {
+  display: inline-block;
+  position: relative;
+
+  &.error [class^="icon-"],
+  &.error [class*=" icon-"] {
+    color: @color-negative;
+  }
+
+  // Position & padding
+  [class^="icon-"],
+  [class*=" icon-"] {
+    left: 1em;
+  }
+
+  input { padding-left: 3em; }
+
+  // Styling
+  input {
+    width: 100%;
+
+    &:focus {
+      & + [class^="icon-"],
+      & + [class*=" icon-"] {
+        color: @color-primary;
+      }
+    }
+  }
+
+  [class^="icon-"],
+  [class*=" icon-"] {
+    .transition( all 300ms ease-in );
+    .transform(translate3d(0,-50%,0));
+    background: transparent;
+    color: @color-medium;
+    font-size: 1em;
+    height: 1em;
+    position: absolute;
+    top: 50%;
+    width: 1em;
+  }
+}

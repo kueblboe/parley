@@ -1,0 +1,35 @@
+<template name="listsShow">
+  <div class="page lists-show">
+    <nav class="js-title-nav">
+      {{#if editing}}
+        <form class="js-edit-form list-edit-form">
+          <input type="text" name="name" value="{{name}}">
+          <div class="nav-group right">
+            <a href="#" class="js-cancel nav-item"><span class="icon-close js-cancel" title="Cancel"></span></a>
+          </div>
+        </form>
+      {{else}}
+        <div class="nav-group">
+          <a href="#" class="js-menu nav-item"><span class="icon-list-unordered" title="Show menu"></span></a>
+        </div>
+
+        <h1 class="js-edit-list title-page"><span class="title-wrapper">{{name}}</span></h1>
+
+        <div class="nav-group right">
+          <a class="js-delete-list nav-item">
+            <span class="icon-trash" title="Delete topic"></span>
+          </a>
+        </div>
+      {{/if}}
+    </nav>
+
+    <div class="content-scrollable list-items">
+      {{#each unfinalizedPosts}}
+        {{> todosItemActive}}
+      {{/each}}
+      {{#each finalizedPosts}}
+        {{> todosItem}}
+      {{/each}}
+    </div>
+  </div>
+</template>

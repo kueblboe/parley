@@ -1,0 +1,50 @@
+.list-items .list-item {
+  .font-s2;
+
+  // Layout of list-item children
+  .display(flex);
+  .flex-wrap(wrap);
+  width: 100%;
+
+  .checkbox {
+    .flex(0, 0, 44px);
+  }
+
+  span, textarea {
+    .flex(1);
+  }
+
+  span {
+    padding: 14px 0;
+  }
+
+  // Style of list-item children
+  textarea {
+    background: transparent;
+    cursor: pointer;
+    height: auto;
+    overflow-y: hidden;
+    resize: none;
+
+    &:focus { cursor: text; }
+  }
+
+  .delete-item {
+    color: @color-medium-rare;
+    line-height: 3rem;
+    text-align: center;
+
+    &:hover { color: @color-primary; }
+    &:active { color: @color-well; }
+    .icon-trash { font-size: 1.1em; }
+  }
+
+  .avatar {
+    height: 25px;
+    margin: 5px 0;
+    border-radius: 50%;
+  }
+
+  // Border between list items
+  & + .list-item { border-top: 1px solid #f0f9fb; }
+}
