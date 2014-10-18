@@ -56,29 +56,6 @@ nav {
       vertical-align: top;
       max-width: 100%;
     }
-
-    .count-list {
-      background: @color-primary;
-      border-radius: 1em;
-      color: @color-empty;
-      display: inline-block;
-      font-size: .7rem;
-      line-height: 1;
-      margin-left: -1.25rem;
-      margin-top: -4px;
-      padding: .3em .5em;
-      vertical-align: middle;
-    }
-  }
-  form.todo-new {
-    .position(absolute, 3em, 0, auto, 0);
-
-    input[type="text"] {
-      background: transparent;
-      padding-bottom: .25em;
-      padding-left: 44px !important;
-      padding-top: .25em;
-    }
   }
   form.list-edit-form {
     position: relative;
@@ -99,15 +76,8 @@ nav {
     opacity: 0; // allows the cog to appear
   }
 
-  .options-web {
-    display: none;
-
-    .nav-item {
-      .font-s3;
-      width: 2rem;
-
-      &:last-child { margin-right: .5rem; }
-    }
+  .js-delete-list {
+    font-size: 14px;
   }
 
   // Hide & show options and nav icons
