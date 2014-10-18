@@ -47,6 +47,7 @@ Meteor.startup ->
         Todos.insert
           listId: list_id
           text: text
+          finalized: true
           createdAt: new Date(timestamp)
 
         timestamp += 1 # ensure unique timestamp.
