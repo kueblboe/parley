@@ -22,11 +22,15 @@
   textarea {
     background: transparent;
     cursor: pointer;
-    height: auto;
+    height: 53px;
     overflow-y: hidden;
     resize: none;
+    .transition( all 300ms ease-out );
 
-    &:focus { cursor: text; }
+    &:focus {
+      cursor: text;
+      height: 120px;
+    }
   }
 
   .avatar {
