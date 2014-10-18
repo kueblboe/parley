@@ -71,6 +71,17 @@ Router.map ->
     action: ->
       Router.go "listsShow", Lists.findOne()
 
+requireLogin = (pause) ->
+  unless Meteor.user()
+    if Meteor.loggingIn()
+      @render @loadingTemplate
+      pause()
+    else
+      @render "signin"
+      pause()
+
+Router.onBeforeAction requireLogin
+
 if Meteor.isClient
   Router.onBeforeAction "loading",
     except: [
