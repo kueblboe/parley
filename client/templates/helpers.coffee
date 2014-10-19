@@ -4,6 +4,11 @@
 UI.registerHelper "domain", ->
   Meteor.user()?.domain
 
+UI.registerHelper "emailLocalPart", (userId) ->
+  user = if userId then Meteor.users.findOne(userId) else Meteor.user()
+  email = user.emails[0].address
+  email.substring 0, email.indexOf("@")
+
 UI.registerHelper "avatar", (userId) ->
   profile = userProfile(userId)
   if not userId? or not profile

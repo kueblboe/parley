@@ -47,10 +47,6 @@ Template.appBody.helpers
   cordova: ->
     Meteor.isCordova and "cordova"
 
-  emailLocalPart: ->
-    email = Meteor.user().emails[0].address
-    email.substring 0, email.indexOf("@")
-
   userMenuOpen: ->
     Session.get USER_MENU_KEY
 
