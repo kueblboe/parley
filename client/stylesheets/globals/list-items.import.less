@@ -1,3 +1,20 @@
+@avatar-height: 25px;
+@avatar-border: 3px;
+@avatar-margin-v: 5px;
+
+@-webkit-keyframes border-pulsate {
+    0%   {border-color: @color-empty;}
+    50%  {border-color: @color-primary;}
+    100% {border-color: @color-empty;}
+}
+
+/* Standard syntax */
+@keyframes myfirst {
+    0%   {border-color: @color-empty;}
+    50%  {border-color: @color-primary;}
+    100% {border-color: @color-empty;}
+}
+
 .list-items .list-item {
   .font-s2;
 
@@ -44,9 +61,16 @@
   }
 
   .avatar {
-    height: 25px;
-    margin: 5px 0;
+    height: @avatar-height;
+    margin: @avatar-margin-v 0;
     border-radius: 50%;
+
+    &.active {
+      height: @avatar-height + 2 * @avatar-border;
+      margin: (@avatar-margin-v - @avatar-border) -@avatar-border;
+      border: @avatar-border solid white;
+      .animation(border-pulsate 2s infinite linear);
+    }
   }
 
   // Border between list items
